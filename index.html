@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="vMtIREz_mNRYWIFaCxZRcmlolbIjHhCOqRZRc1t6B5U" />
     <title>NextScholar - Your Scholarship Journey Made Simple</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,9 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         h1 {
@@ -68,7 +71,7 @@
             color: #9d4edd;
             font-size: 0.9rem;
         }
-        
+
         .footer a {
             color: #e0aaff;
             text-decoration: none;
@@ -79,18 +82,628 @@
         .footer a:hover {
             color: #c77dff;
         }
-        
+
+        html, body {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #240046cc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px 0 rgba(16,0,43,0.07);
+        }
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e0aaff;
+            letter-spacing: 1px;
+        }
+        .navbar-links a {
+            color: #e0aaff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+        .navbar-links a:hover {
+            color: #c77dff;
+        }
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.7rem 1rem;
+            }
+            .navbar-links {
+                margin-top: 0.5rem;
+            }
+        }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 4.5rem;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #c77dff, #7b2cbf);
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(123, 44, 191, 0.4);
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin: 2rem 0 0.5rem 0;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(123, 44, 191, 0.6);
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        .features-section {
+            width: 100%;
+        }
+        .features-section .feature-card {
+            transition: box-shadow 0.2s, transform 0.2s;
+            min-width: 180px;
+            max-width: 100%;
+        }
+        .features-section .feature-card:hover {
+            box-shadow: 0 4px 32px 0 #c77dff55, 0 2px 16px 0 #7b2cbf33;
+            transform: translateY(-6px) scale(1.03);
+        }
+        #install-card {
+            transition: opacity 0.3s;
+            opacity: 1;
+        }
+        #install-card.fading {
+            opacity: 0;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-60px); opacity: 0; }
+        }
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(60px); opacity: 0; }
+        }
+        #install-card.slide-in-left {
+            animation: slideInLeft 0.3s;
+        }
+        #install-card.slide-in-right {
+            animation: slideInRight 0.3s;
+        }
+        #install-card.slide-out-left {
+            animation: slideOutLeft 0.3s;
+        }
+        #install-card.slide-out-right {
+            animation: slideOutRight 0.3s;
+        }
+        #install-carousel button {
+            transition: transform 0.18s, filter 0.18s;
+        }
+        #install-carousel button:hover svg path {
+            filter: brightness(1.5);
+            stroke: #fff;
+        }
+        #install-carousel button:hover {
+            transform: scale(1.13);
+        }
+        /* Make the main heading more impactful */
+        .hero-title {
+            font-size: clamp(2.2rem, 10vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #e0aaff 0%, #c77dff 50%, #a685e2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 2rem;
+        }
+
+        /* Improve subtitle readability */
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Full-width hero background gradient */
+        .hero-bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          height: 100vh;
+          z-index: 0;
+          background:
+            radial-gradient(circle at 20% 80%, rgba(199, 125, 255, 0.18) 0%, transparent 60%),
+            radial-gradient(circle at 80% 20%, rgba(123, 44, 191, 0.22) 0%, transparent 60%),
+            radial-gradient(circle at 50% 50%, rgba(100, 36, 170, 0.13) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .container, .hero-section {
+          position: relative;
+          z-index: 1;
+          max-width: 100vw;
+          box-sizing: border-box;
+        }
+        @media (max-width: 900px) {
+            .container {
+                max-width: 100vw;
+                padding-left: clamp(0.5rem, 4vw, 1.2rem);
+                padding-right: clamp(0.5rem, 4vw, 1.2rem);
+            }
+            .features-section > div {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .features-section .feature-card {
+                min-width: 90vw;
+                max-width: 98vw;
+                margin-bottom: 1.2rem;
+            }
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+            .cta-button, .back-link {
+                width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0.5rem 0.2rem;
+                max-width: 100vw;
+            }
+            .features-section .feature-card {
+                min-width: 98vw;
+                max-width: 99vw;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 13vw, 3.2rem) !important;
+            }
+            .hero-section, .hero {
+                min-height: calc(100vh - 3.5rem) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                padding-top: 0 !important;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.7rem 0.2rem;
+            }
+            .navbar-links {
+                margin-top: 0.5rem;
+            }
+            .navbar-logo {
+                margin-left: 0.5rem !important;
+            }
+            .navbar-tab {
+                display: block !important;
+                margin-right: 0.5rem !important;
+            }
+            .cta-button {
+                width: 100%;
+                max-width: 340px;
+                font-size: 1rem;
+                padding: 14px 0;
+                box-sizing: border-box;
+                margin: 0 auto;
+                margin-top: 1.5rem;
+            }
+            .cta-button .chrome-logo-btn {
+                height: 1.1em;
+            }
+            .navbar, .navbar-dropdown, .hero-bg {
+                width: 100% !important;
+                min-width: 0 !important;
+                max-width: 100% !important;
+            }
+        }
+        .navbar-tab {
+            display: none;
+        }
+        .navbar-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vw;
+            background: #240046ee;
+            box-shadow: 0 8px 32px rgba(123, 44, 191, 0.18);
+            z-index: 1100;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+            animation: navbarDropdownIn 0.25s;
+        }
+        .navbar-dropdown a {
+            color: #e0aaff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            width: 100%;
+            display: block;
+            padding: 0.5rem 0;
+            border-radius: 6px;
+            transition: background 0.18s, color 0.18s;
+        }
+        .navbar-dropdown a:last-child {
+            margin-bottom: 0;
+        }
+        .navbar-dropdown a:hover {
+            background: #3c096c;
+            color: #fff;
+        }
+        @keyframes navbarDropdownIn {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .navbar-links {
+                display: none !important;
+            }
+            .navbar-tab {
+                display: block !important;
+            }
+            .navbar {
+                flex-direction: row;
+                align-items: center;
+                padding: 0.7rem 0.2rem;
+            }
+            .navbar-logo {
+                margin-left: 0.5rem !important;
+            }
+            .navbar-dropdown {
+                display: flex;
+            }
+        }
+        .cta-button .chrome-logo-btn {
+            height: 1.2em;
+            width: auto;
+            vertical-align: -0.25em;
+            margin-right: 0.5em;
+            display: inline-block;
+        }
+        /* Carousel slide animations */
+        .carousel-slide-in-left {
+            animation: carouselSlideInLeft 0.45s cubic-bezier(0.4,0,0.2,1);
+        }
+        .carousel-slide-in-right {
+            animation: carouselSlideInRight 0.45s cubic-bezier(0.4,0,0.2,1);
+        }
+        .carousel-slide-out-left {
+            animation: carouselSlideOutLeft 0.45s cubic-bezier(0.4,0,0.2,1);
+        }
+        .carousel-slide-out-right {
+            animation: carouselSlideOutRight 0.45s cubic-bezier(0.4,0,0.2,1);
+        }
+        @keyframes carouselSlideInLeft {
+            from { transform: translateX(-60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes carouselSlideInRight {
+            from { transform: translateX(60px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes carouselSlideOutLeft {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(-60px); opacity: 0; }
+        }
+        @keyframes carouselSlideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(60px); opacity: 0; }
+        }
+        /* Carousel arrow hover effect */
+        #feature-carousel button {
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.18s;
+            border-radius: 50%;
+        }
+        #feature-carousel button:hover {
+            background: #c77dff22;
+            color: #fff;
+            box-shadow: 0 4px 16px #c77dff44;
+            transform: scale(1.13);
+        }
+        #feature-carousel button:hover svg path {
+            stroke: #fff;
+            filter: brightness(1.5);
+        }
     </style>
+    <!-- SEO & Social Sharing -->
+    <meta name="description" content="NextScholar is your smart hub to conquer scholarship applications. Track deadlines, requirements, and progress—all in one place. Stay organized and never miss a deadline!">
+    <meta property="og:title" content="NextScholar – Scholarship Tracker Chrome Extension">
+    <meta property="og:description" content="Track, organize, and achieve your educational funding goals. Add, manage, and sync all your scholarships in one place.">
+    <meta property="og:image" content="images/og-image.png">
+    <meta property="og:url" content="https://chromewebstore.google.com/detail/nextscholar/ndohegljfodihdiaopgalhlinaamcfbj">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="icons/icon_transparent.png">
 </head>
 <body>
+    <div class="navbar">
+        <div class="navbar-logo">NextScholar</div>
+        <button class="navbar-tab" aria-label="Open navigation" style="display:none;background:none;border:none;color:#e0aaff;font-size:2rem;cursor:pointer;margin-left:auto;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="4" width="24" height="2.5" rx="1.25" fill="#e0aaff"/><rect y="10.75" width="24" height="2.5" rx="1.25" fill="#e0aaff"/><rect y="17.5" width="24" height="2.5" rx="1.25" fill="#e0aaff"/></svg>
+        </button>
+        <div class="navbar-links">
+            <a href="#features-section">Features</a>
+            <a href="#how-it-works-section">In Action</a>
+            <a href="#installation-guide">Installation Guide</a>
+        </div>
+        <div class="navbar-dropdown" style="display:none;">
+            <a href="#features-section">Features</a>
+            <a href="#how-it-works-section">In Action</a>
+            <a href="#installation-guide">Installation Guide</a>
+        </div>
+    </div>
+    <div class="hero-bg"></div>
     <div class="container">
-        <h1>NextScholar</h1>
-        <p class="tagline">Transform your scholarship application process.<br>Track, organize, and achieve your educational funding goals.</p>
-        <div class="coming-soon">Chrome Extension Available Soon</div>
+        <!-- Hero Section -->
+        <div class="hero-section hero">
+            <h1 class="hero-title">NextScholar</h1>
+            <p class="hero-subtitle">Your smart hub to conquer scholarship applications.<br>Track deadlines, requirements, and progress - all in one place.</p>
+            <a href="https://chromewebstore.google.com/detail/nextscholar/ndohegljfodihdiaopgalhlinaamcfbj" class="cta-button" target="_blank" rel="noopener noreferrer">
+                <img src="images/chrome-logo.png" alt="Chrome logo" class="chrome-logo-btn" style="height:1.3em;width:auto;vertical-align:middle;margin-right:0.5em;display:inline-block;" />
+                Add to Chrome - It's Free!
+            </a>
+        </div>
+
+        <!-- Features Section -->
+        <div id="features-section" class="features-section" style="margin-top: 4.5rem; margin-bottom: 2rem;">
+            <h2 style="font-size:2.2rem; font-weight:700; color:#e0aaff; margin-bottom:1.5rem;">Features</h2>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
+                <div class="feature-card" style="background:#240046; border-radius:10px; padding:1.5rem 1.2rem; min-width:200px; max-width:240px; flex:1 1 200px;">
+                    <div style="font-size:2rem; margin-bottom:0.5rem;">📋</div>
+                    <div style="font-weight:600; font-size:1.1rem; margin-bottom:0.3rem;">Track Scholarships</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Add, edit, and manage all your scholarships in one place.</div>
+                </div>
+                <div class="feature-card" style="background:#240046; border-radius:10px; padding:1.5rem 1.2rem; min-width:200px; max-width:240px; flex:1 1 200px;">
+                    <div style="font-size:2rem; margin-bottom:0.5rem;">🎯</div>
+                    <div style="font-weight:600; font-size:1.1rem; margin-bottom:0.3rem;">Weekly Goals</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Set and track weekly application goals to stay motivated.</div>
+                </div>
+                <div class="feature-card" style="background:#240046; border-radius:10px; padding:1.5rem 1.2rem; min-width:200px; max-width:240px; flex:1 1 200px;">
+                    <div style="font-size:2rem; margin-bottom:0.5rem;">⏰</div>
+                    <div style="font-weight:600; font-size:1.1rem; margin-bottom:0.3rem;">Smart Reminders</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Get notified before deadlines with customizable reminders.</div>
+                </div>
+                <div class="feature-card" style="background:#240046; border-radius:10px; padding:1.5rem 1.2rem; min-width:200px; max-width:240px; flex:1 1 200px;">
+                    <div style="font-size:2rem; margin-bottom:0.5rem;">📅</div>
+                    <div style="font-weight:600; font-size:1.1rem; margin-bottom:0.3rem;">Google Calendar Sync</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Sync scholarship deadlines to your Google Calendar in one click.</div>
+                </div>
+                <div class="feature-card" style="background:#240046; border-radius:10px; padding:1.5rem 1.2rem; min-width:200px; max-width:240px; flex:1 1 200px;">
+                    <div style="font-size:2rem; margin-bottom:0.5rem;">📊</div>
+                    <div style="font-weight:600; font-size:1.1rem; margin-bottom:0.3rem;">Export to CSV</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Download your scholarship list for Excel or Google Sheets.</div>
+                </div>
+            </div>
+        </div>
+        <!-- How It Works Carousel Section -->
+        <div id="how-it-works-section" style="margin: 4rem 0 2rem 0; text-align: center;">
+            <h2 style="font-size:2.2rem; font-weight:700; color:#e0aaff; margin-bottom:2rem;">See NextScholar in Action</h2>
+            <div id="feature-carousel" style="max-width: 700px; margin: 0 auto; position: relative;">
+                <img id="carousel-img" src="images/feature1.png" alt="Stay on top of every deadline" style="width:100%; border-radius:18px; box-shadow:0 2px 16px 0 #7b2cbf33; transition:opacity 0.4s;" />
+                <button id="carousel-prev" aria-label="Previous" style="position:absolute;left:-2.5rem;top:50%;transform:translateY(-50%);background:none;border:none;padding:0;font-size:2.2rem;color:#c77dff;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 19l-7-7 7-7" stroke="#c77dff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button id="carousel-next" aria-label="Next" style="position:absolute;right:-2.5rem;top:50%;transform:translateY(-50%);background:none;border:none;padding:0;font-size:2.2rem;color:#c77dff;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 5l7 7-7 7" stroke="#c77dff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div id="carousel-dots" style="margin-top:1.2rem; display:flex; justify-content:center; gap:0.5rem;"></div>
+            </div>
+            <script>
+            const featureSlides = [
+                { img: 'images/feature1.png', alt: 'Stay on top of every deadline' },
+                { img: 'images/feature2.png', alt: 'Add new scholarships in seconds' },
+                { img: 'images/feature3.png', alt: 'Sync deadlines to Google Calendar with one click' },
+                { img: 'images/feature4.png', alt: 'Turn ambition into action with weekly goals' },
+                { img: 'images/feature5.png', alt: 'Own your scholarship journey. Start organizing with NextScholar today.' }
+            ];
+            let featureIndex = 0;
+            const carouselImg = document.getElementById('carousel-img');
+            const dotsContainer = document.getElementById('carousel-dots');
+            let animating = false;
+            function updateCarousel(idx, direction = 0) {
+                if (animating) return;
+                animating = true;
+                // Remove all animation classes
+                carouselImg.classList.remove('carousel-slide-in-left', 'carousel-slide-in-right', 'carousel-slide-out-left', 'carousel-slide-out-right');
+                // Slide out
+                if (direction !== 0) {
+                    carouselImg.classList.add(direction === 1 ? 'carousel-slide-out-left' : 'carousel-slide-out-right');
+                    setTimeout(() => {
+                        carouselImg.classList.remove('carousel-slide-out-left', 'carousel-slide-out-right');
+                        // Update content
+                        featureIndex = idx;
+                        carouselImg.src = featureSlides[featureIndex].img;
+                        carouselImg.alt = featureSlides[featureIndex].alt;
+                        // Slide in
+                        carouselImg.classList.add(direction === 1 ? 'carousel-slide-in-right' : 'carousel-slide-in-left');
+                        setTimeout(() => {
+                            carouselImg.classList.remove('carousel-slide-in-left', 'carousel-slide-in-right');
+                            animating = false;
+                        }, 450);
+                    }, 450);
+                } else {
+                    // No animation, just update
+                    featureIndex = idx;
+                    carouselImg.src = featureSlides[featureIndex].img;
+                    carouselImg.alt = featureSlides[featureIndex].alt;
+                    animating = false;
+                }
+                dotsContainer.innerHTML = featureSlides.map((_, i) => `<span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${i===featureIndex?'#c77dff':'#4b3869'};transition:background 0.2s;cursor:pointer;" onclick="featureGoTo(${i})"></span>`).join('');
+            }
+            function featureGoTo(i) {
+                if (i === featureIndex) return;
+                updateCarousel(i, i > featureIndex ? 1 : -1);
+            }
+            document.getElementById('carousel-prev').onclick = function() {
+                const next = (featureIndex + featureSlides.length - 1) % featureSlides.length;
+                updateCarousel(next, -1);
+            };
+            document.getElementById('carousel-next').onclick = function() {
+                const next = (featureIndex + 1) % featureSlides.length;
+                updateCarousel(next, 1);
+            };
+            window.featureGoTo = featureGoTo;
+            updateCarousel(0);
+            </script>
+        </div>
+        <!-- Installation Guide Section -->
+        <div id="installation-guide" style="margin: 4rem 0 2rem 0; text-align: center;">
+            <h2 style="font-size:2.2rem; font-weight:700; color:#e0aaff; margin-bottom:2rem;">Installation Guide</h2>
+            <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
+                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <img src="images/1.png" alt="Add to Chrome" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
+                    <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">1. Add to Chrome</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Go to the Chrome Web Store and click <b>Add to Chrome</b>.</div>
+                </div>
+                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <img src="images/2.png" alt="Confirm Extension" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
+                    <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">2. Confirm Extension</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Click <b>Add extension</b> in the popup to confirm installation.</div>
+                </div>
+                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <img src="images/3.png" alt="Pin for Easy Access" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
+                    <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">3. Pin for Easy Access</div>
+                    <div style="color:#e0aaff; font-size:1rem;">Pin NextScholar to your Chrome toolbar for quick access.</div>
+                </div>
+            </div>
+        </div>
+        <!-- Share with a Friend Section -->
+        <div style="margin: 4rem 0 2rem 0; text-align: center;">
+            <h2 style="font-size:1.5rem; font-weight:700; color:#e0aaff; margin-bottom:1rem;">Share NextScholar</h2>
+            <p style="color:#e0aaff; margin-bottom:0.25rem;">Help your friends stay organized and motivated!</p>
+            <button id="share-btn-bottom" class="cta-button" style="background:linear-gradient(135deg,#7b2cbf,#c77dff);font-size:1rem;padding:14px 28px;">Share</button>
+            <div id="share-fallback" style="display:none; margin-top:1.2rem;">
+                <input id="share-link" type="text" value="https://chromewebstore.google.com/detail/nextscholar/ndohegljfodihdiaopgalhlinaamcfbj" readonly style="width:340px;max-width:90vw;padding:8px 12px;border-radius:6px;border:none;background:#1a1033;color:#e0aaff;font-size:1rem;">
+                <button id="copy-link-btn" class="cta-button" style="font-size:1rem;padding:8px 18px;margin-left:0.5rem;">Copy</button>
+                <span id="copy-confirm" style="color:#c77dff;font-weight:600;margin-left:0.7rem;display:none;">Copied!</span>
+            </div>
+        </div>
+        <script>
+        const shareBtnBottom = document.getElementById('share-btn-bottom');
+        const shareUrl = 'https://chromewebstore.google.com/detail/nextscholar/ndohegljfodihdiaopgalhlinaamcfbj';
+        const shareText = 'Check out NextScholar – the best Chrome extension to track and organize your scholarship applications!';
+        const shareFallback = document.getElementById('share-fallback');
+        const shareLink = document.getElementById('share-link');
+        const copyBtn = document.getElementById('copy-link-btn');
+        const copyConfirm = document.getElementById('copy-confirm');
+        shareBtnBottom.onclick = async function() {
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: 'NextScholar – Scholarship Tracker',
+                text: shareText,
+                url: shareUrl
+              });
+            } catch (e) {}
+          } else {
+            shareFallback.style.display = 'block';
+            shareLink.select();
+          }
+        };
+        copyBtn.onclick = async function() {
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            copyConfirm.style.display = 'inline';
+            setTimeout(()=>{ copyConfirm.style.display = 'none'; }, 1500);
+          } catch (e) {
+            alert('Copy this link: ' + shareUrl);
+          }
+        };
+        </script>
         <div class="footer">
             &copy; 2025 NextScholar. All rights reserved.
             <a href="privacy.html">Privacy Policy</a>
         </div>
     </div>
+    <script>
+    // Mobile navbar dropdown logic
+    (function() {
+      const tabBtn = document.querySelector('.navbar-tab');
+      const dropdown = document.querySelector('.navbar-dropdown');
+      const links = dropdown.querySelectorAll('a');
+      let open = false;
+      function openDropdown() {
+        dropdown.style.display = 'flex';
+        setTimeout(()=>dropdown.style.pointerEvents = 'auto', 10);
+        open = true;
+      }
+      function closeDropdown() {
+        dropdown.style.display = 'none';
+        dropdown.style.pointerEvents = 'none';
+        open = false;
+      }
+      tabBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (open) {
+          closeDropdown();
+        } else {
+          openDropdown();
+        }
+      });
+      links.forEach(link => link.addEventListener('click', closeDropdown));
+      document.addEventListener('click', function(e) {
+        if (open && !dropdown.contains(e.target) && e.target !== tabBtn) {
+          closeDropdown();
+        }
+      });
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 600) closeDropdown();
+      });
+    })();
+    </script>
 </body>
 </html> 
