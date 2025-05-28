@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="NextScholar Privacy Policy: Your data is private, secure, and never leaves your device. Learn how we protect your information.">
+    <link rel="icon" type="image/png" href="icons/icon_transparent.png">
     <style>
         * {
             margin: 0;
@@ -15,85 +17,142 @@
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
-
         body {
-            background-color: #10002b;
-            color: white;
             min-height: 100vh;
-            padding: 4rem 2rem;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(199, 125, 255, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(123, 44, 191, 0.22) 0%, transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(100, 36, 170, 0.13) 0%, transparent 70%),
+                #10002b;
+            color: #e0aaff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
         }
-
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 700px;
+            margin: 3rem auto 2rem auto;
+            background: rgba(36,0,70,0.92);
+            border-radius: 18px;
+            box-shadow: 0 4px 32px 0 #7b2cbf33;
+            padding: 2.5rem 2rem 2rem 2rem;
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            box-sizing: border-box;
         }
-
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #c77dff, #7b2cbf);
+            font-size: clamp(1.7rem, 6vw, 2.7rem);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #e0aaff 0%, #c77dff 50%, #a685e2 100%);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
             color: transparent;
+            text-align: center;
         }
-
         .date {
-            color: #e0aaff;
+            color: #c77dff;
             margin-bottom: 2rem;
             font-style: italic;
+            text-align: center;
         }
-
         h2 {
             color: #c77dff;
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 4vw, 1.35rem);
             margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.7rem;
+            font-weight: 700;
         }
-
-        p {
+        p, ul {
             color: #e0aaff;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.1rem;
+            font-size: clamp(0.98rem, 3vw, 1.08rem);
         }
-
         ul {
-            color: #e0aaff;
-            line-height: 1.6;
-            margin-bottom: 1rem;
             margin-left: 2rem;
         }
-
         .contact {
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid #240046;
+            border-top: 1px solid #7b2cbf;
         }
-
         a {
             color: #c77dff;
             text-decoration: none;
             transition: color 0.2s ease;
+            word-break: break-all;
         }
-
         a:hover {
             color: #e0aaff;
         }
-
         .back-link {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.5rem 1rem;
-            background-color: #240046;
-            border-radius: 4px;
-            color: white;
+            display: block;
+            margin: 2.5rem auto 0 auto;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #c77dff, #7b2cbf);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            box-shadow: 0 8px 32px rgba(123, 44, 191, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 340px;
+            text-align: center;
         }
-
         .back-link:hover {
+            background: linear-gradient(135deg, #7b2cbf, #c77dff);
             transform: translateY(-2px);
-            color: white;
+            box-shadow: 0 12px 40px rgba(123, 44, 191, 0.6);
+            color: #fff;
+        }
+        .back-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .back-link:hover::before {
+            left: 100%;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.2rem 0.5rem;
+                max-width: 100vw;
+            }
+            h1 {
+                font-size: clamp(1.3rem, 7vw, 2rem);
+            }
+            h2 {
+                font-size: clamp(1rem, 5vw, 1.15rem);
+            }
+            .back-link {
+                width: 100%;
+                max-width: 98vw;
+                font-size: 1rem;
+                padding: 14px 0;
+            }
+            .contact {
+                margin-top: 2rem;
+                padding-top: 1.2rem;
+            }
+        }
+        html, body {
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -148,7 +207,7 @@
             📧 <a href="mailto:priyaltaneja15@gmail.com">priyaltaneja15@gmail.com</a></p>
         </div>
 
-        <a href="index.html" class="back-link">← Back to Home</a>
+        <a href="index.html" class="back-link">Back to Home</a>
     </div>
 </body>
 </html> 
