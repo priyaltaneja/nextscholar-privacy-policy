@@ -459,6 +459,50 @@
             stroke: #fff;
             filter: brightness(1.5);
         }
+        /* Initial load animations */
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-title {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-subtitle {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+        .cta-button {
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+        .feature-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        #feature-carousel {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+        #installation-guide > div {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        #installation-guide > div:nth-child(1) { animation-delay: 0.7s; }
+        #installation-guide > div:nth-child(2) { animation-delay: 0.8s; }
+        #installation-guide > div:nth-child(3) { animation-delay: 0.9s; }
+        .footer {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 1s backwards;
+        }
     </style>
     <!-- SEO & Social Sharing -->
     <meta name="description" content="NextScholar is your smart hub to conquer scholarship applications. Track deadlines, requirements, and progress—all in one place. Stay organized and never miss a deadline!">
