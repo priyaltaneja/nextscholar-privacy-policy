@@ -492,13 +492,13 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
-        #installation-guide > div {
+        .install-card {
             opacity: 0;
             animation: fadeInUp 0.8s ease-out backwards;
         }
-        #installation-guide > div:nth-child(1) { animation-delay: 0.7s; }
-        #installation-guide > div:nth-child(2) { animation-delay: 0.8s; }
-        #installation-guide > div:nth-child(3) { animation-delay: 0.9s; }
+        .install-card:nth-child(1) { animation-delay: 0.7s; }
+        .install-card:nth-child(2) { animation-delay: 0.8s; }
+        .install-card:nth-child(3) { animation-delay: 0.9s; }
         .footer {
             opacity: 0;
             animation: fadeInUp 0.8s ease-out 1s backwards;
@@ -648,17 +648,17 @@
         <div id="installation-guide" style="margin: 4rem 0 2rem 0; text-align: center;">
             <h2 style="font-size:2.2rem; font-weight:700; color:#e0aaff; margin-bottom:2rem;">Installation Guide</h2>
             <div style="display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap;">
-                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div class="install-card" style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                     <img src="images/1.png" alt="Add to Chrome" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
                     <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">1. Add to Chrome</div>
                     <div style="color:#e0aaff; font-size:1rem;">Go to the Chrome Web Store and click <b>Add to Chrome</b>.</div>
                 </div>
-                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div class="install-card" style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                     <img src="images/2.png" alt="Confirm Extension" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
                     <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">2. Confirm Extension</div>
                     <div style="color:#e0aaff; font-size:1rem;">Click <b>Add extension</b> in the popup to confirm installation.</div>
                 </div>
-                <div style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <div class="install-card" style="background:#240046; border-radius:14px; padding:1.5rem; width:300px; display:flex; flex-direction:column; align-items:center; transition: all 0.3s ease; cursor:pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 8px 32px 0 #c77dff55, 0 4px 16px 0 #7b2cbf33';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
                     <img src="images/3.png" alt="Pin for Easy Access" style="width:100%; border-radius:12px; margin-bottom:1.2rem; box-shadow:0 2px 16px 0 #7b2cbf33;" />
                     <div style="font-size:1.2rem; font-weight:700; color:#c77dff; margin-bottom:0.3rem;">3. Pin for Easy Access</div>
                     <div style="color:#e0aaff; font-size:1rem;">Pin NextScholar to your Chrome toolbar for quick access.</div>
